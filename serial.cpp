@@ -20,6 +20,7 @@ serial::serial(char * port_name, __sighandler_t fn){
 
     if(fd == -1){
         std::cout << "[err] serial port not available \n";
+        exit(1);
     }else{
         saio.sa_handler = serial::event;
         sigemptyset(&saio.sa_mask);
